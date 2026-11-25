@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Galería interactiva de planos técnicos: vistas ortogonales, perspectiva isométrica, cortes y secciones, planos arquitectónicos y visor lightbox.">
+  <title>Galería de Planos y Técnicas // TRAZO.DT</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos-principales.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-galeria">Saltar al contenido principal</a>
+
+  <!-- BARRA DE NAVEGACIÓN FIJA -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="brand" aria-label="Inicio — Trazo Dibujo Técnico">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" width="32" height="32" fill="none">
+            <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M8 28L28 8M8 28H24M8 28V12" stroke="#1D4ED8" stroke-width="2" stroke-linecap="square"/>
+            <circle cx="28" cy="8" r="2.4" fill="#E11D48"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">TRAZO<span class="brand__dot">.</span>DT</span>
+          <span class="brand__meta font-mono">ISO 128 // PORTAL TÉCNICO</span>
+        </span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link"><span class="nav-num font-mono">01</span> Inicio</a></li>
+          <li><a href="historia.html" class="nav-link"><span class="nav-num font-mono">02</span> Historia</a></li>
+          <li><a href="galeria.html" class="nav-link is-active"><span class="nav-num font-mono">03</span> Galería de Planos</a></li>
+          <li><a href="aplicaciones.html" class="nav-link"><span class="nav-num font-mono">04</span> Aplicaciones</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <span class="coord-readout font-mono" id="coordReadout" aria-hidden="true">X: 000 &nbsp;Y: 000</span>
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Navegación móvil">
+        <ul class="mobile-menu__list">
+          <li><a href="index.html" class="mobile-link"><span class="font-mono">01 //</span> Inicio</a></li>
+          <li><a href="historia.html" class="mobile-link"><span class="font-mono">02 //</span> Historia del Dibujo Técnico</a></li>
+          <li><a href="galeria.html" class="mobile-link is-active"><span class="font-mono">03 //</span> Galería de Planos</a></li>
+          <li><a href="aplicaciones.html" class="mobile-link"><span class="font-mono">04 //</span> Aplicaciones Industriales</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-galeria">
+    <!-- BANNER DE GALERÍA -->
+    <section class="page-banner">
+      <div class="container page-banner__grid">
+        <div>
+          <nav class="breadcrumb font-mono" aria-label="Ruta de navegación">
+            <a href="index.html">INICIO</a>
+            <span>/</span>
+            <span class="breadcrumb__current">03. GALERÍA DE PLANOS Y TÉCNICAS</span>
+          </nav>
+          <h1 class="page-banner__title">Archivo Técnico de Planos</h1>
+          <p class="page-banner__desc">
+            Filtra entre láminas de vistas ortogonales, perspectiva isométrica, cortes y secciones, y planos arquitectónicos. Haz clic en cualquier tarjeta para abrir el visor ampliado con su cajetín técnico y modo Blueprint.
+          </p>
+          <div class="page-banner__stats font-mono">
+            <span class="banner-chip">8 LÁMINAS TÉCNICAS</span>
+            <span class="banner-chip">IMÁGENES HD + ESQUEMAS SVG</span>
+            <span class="banner-chip">MODO CIANOTIPO INTEGRADO</span>
+          </div>
+        </div>
+
+        <figure class="banner-media banner-media--contain">
+          <img src="assets/imagenes/plano-acoplamiento-isometrico.jpg" alt="Acoplamiento mecánico escalonado en proyección isométrica a 30 grados">
+          <figcaption class="banner-media__caption font-mono">
+            <span>LÁMINA G-03 // PROYECCIÓN ISOMÉTRICA</span>
+            <span>ESCALA 1:2 &middot; ISO 5456-3</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- CUADRÍCULA FILTRABLE DE PLANOS -->
+    <section class="section">
+      <div class="container">
+        <div class="gallery-toolbar reveal">
+          <div class="filter-group" role="group" aria-label="Filtrar planos por categoría">
+            <button type="button" class="filter-btn is-active" data-filter="todos">Todos <span class="filter-count font-mono">8</span></button>
+            <button type="button" class="filter-btn" data-filter="ortogonales">Vistas Ortogonales <span class="filter-count font-mono">2</span></button>
+            <button type="button" class="filter-btn" data-filter="isometrica">Perspectiva Isométrica <span class="filter-count font-mono">2</span></button>
+            <button type="button" class="filter-btn" data-filter="cortes">Cortes y Secciones <span class="filter-count font-mono">2</span></button>
+            <button type="button" class="filter-btn" data-filter="arquitectonicos">Planos Arquitectónicos <span class="filter-count font-mono">2</span></button>
+          </div>
+          <div class="gallery-status font-mono" id="galleryStatus" aria-live="polite">
+            MOSTRANDO 8 DE 8 LÁMINAS
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ALFABETO DE LÍNEAS NORMALIZADO (CON MUESTRAS SVG PRECISAS) -->
+    <section class="section section--tinted">
+      <div class="container">
+        <header class="section-header reveal">
+          <div class="section-header__tag font-mono">NORMA ISO 128-20 // CÓDIGO GRÁFICO</div>
+          <h2 class="section-header__title">Alfabeto de Líneas en un Plano Técnico</h2>
+          <p class="section-header__desc">
+            Para leer correctamente cualquier lámina de la galería, cada trazo cumple una función jerárquica precisa según su grosor y discontinuidad.
+          </p>
+        </header>
+
+        <div class="standards-grid">
+          <article class="standard-box reveal">
+            <div class="line-sample" aria-hidden="true">
+              <svg viewBox="0 0 200 12" width="100%" height="12"><line x1="0" y1="6" x2="200" y2="6" stroke="#0F172A" stroke-width="3.2"/></svg>
+            </div>
+            <span class="pillar-card__code font-mono">TIPO A // 0.5 – 0.7 mm</span>
+            <h3>Línea Continua Gruesa</h3>
+            <p class="plan-card__excerpt">Contornos y aristas visibles del objeto o muros seccionados en arquitectura.</p>
+          </article>
+
+          <article class="standard-box reveal" data-delay="70">
+            <div class="line-sample" aria-hidden="true">
+              <svg viewBox="0 0 200 12" width="100%" height="12"><line x1="0" y1="6" x2="200" y2="6" stroke="#1D4ED8" stroke-width="2.2" stroke-dasharray="10 6"/></svg>
+            </div>
+            <span class="pillar-card__code font-mono">TIPO E // 0.25 – 0.35 mm</span>
+            <h3>Línea de Trazos</h3>
+            <p class="plan-card__excerpt">Aristas y contornos ocultos detrás de caras opacas en vistas ortogonales.</p>
+          </article>
+
+          <article class="standard-box reveal" data-delay="140">
+            <div class="line-sample" aria-hidden="true">
+              <svg viewBox="0 0 200 12" width="100%" height="12"><line x1="0" y1="6" x2="200" y2="6" stroke="#E11D48" stroke-width="1.8" stroke-dasharray="20 5 3 5"/></svg>
+            </div>
+            <span class="pillar-card__code font-mono">TIPO G // 0.18 – 0.25 mm</span>
+            <h3>Trazo Largo y Punto</h3>
+            <p class="plan-card__excerpt">Ejes de simetría, centros de taladros, trayectorias y trazas de planos de corte.</p>
+          </article>
+
+          <article class="standard-box reveal" data-delay="210">
+            <div class="line-sample" aria-hidden="true">
+              <svg viewBox="0 0 200 12" width="100%" height="12"><line x1="0" y1="6" x2="200" y2="6" stroke="#0891B2" stroke-width="1.2"/></svg>
+            </div>
+            <span class="pillar-card__code font-mono">TIPO B // 0.18 mm</span>
+            <h3>Línea Continua Fina</h3>
+            <p class="plan-card__excerpt">Líneas de cota, líneas auxiliares, rayados de sección a 45° y giros de puerta.</p>
+          </article>
+        </div>
+
+        <div class="section-actions">
+          <a href="aplicaciones.html" class="btn btn--primary">Ver Aplicaciones Industriales &rarr;</a>
+          <a href="historia.html" class="btn btn--secondary">Repasar Historia Técnica</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__quote-bar">
+        <span class="footer__quote-tag font-mono">CITA HISTÓRICA // GEOMETRÍA DESCRIPTIVA</span>
+        <blockquote class="footer__quote">
+          “El dibujo técnico tiene por objeto representar con exactitud sobre una hoja de dos dimensiones los objetos que tienen tres y que son susceptibles de una definición rigurosa.”
+          <cite>— Gaspard Monge (1746–1818)</cite>
+        </blockquote>
+      </div>
+
+      <div class="footer__titleblock">
+        <div class="tb-cell">
+          <div class="brand brand--footer">
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 36 36" width="28" height="28" fill="none">
+                <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M8 28L28 8M8 28H24M8 28V12" stroke="#38BDF8" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <span class="brand__text">
+              <span class="brand__name">TRAZO<span class="brand__dot">.</span>DT</span>
+              <span class="brand__meta font-mono">PORTAL EDUCATIVO DE DIBUJO TÉCNICO</span>
+            </span>
+          </div>
+          <p class="footer__desc">Recurso divulgativo sobre representación gráfica, normalización industrial, geometría descriptiva y diseño arquitectónico e ingenieril.</p>
+        </div>
+
+        <div class="tb-cell">
+          <span class="tb-label font-mono">PÁGINAS DEL PORTAL</span>
+          <ul class="footer__links">
+            <li><a href="index.html">01. Inicio y Pilares</a></li>
+            <li><a href="historia.html">02. Historia del Dibujo</a></li>
+            <li><a href="galeria.html">03. Galería de Planos</a></li>
+            <li><a href="aplicaciones.html">04. Aplicaciones Reales</a></li>
+          </ul>
+        </div>
+
+        <div class="tb-cell">
+          <span class="tb-label font-mono">NORMAS DE REFERENCIA</span>
+          <ul class="footer__specs font-mono">
+            <li>ISO 128 — Principios de representación</li>
+            <li>ISO 5457 — Formatos y casilleros</li>
+            <li>ISO 5456 — Métodos de proyección</li>
+            <li>DIN 199 / UNE 1-032 — Documentación</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom font-mono">
+        <span>&copy; 2026 TRAZO.DT &mdash; ARQUITECTURA E INGENIERÍA GRÁFICA</span>
+        <span>MÓDULO 03 // GALERÍA DE PLANOS</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL LIGHTBOX -->
+  <div class="modal" id="planModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog">
+      <header class="modal__header">
+        <div class="modal__title-wrap">
+          <span class="modal__badge font-mono" id="modalCategory">CATEGORÍA</span>
+          <h3 class="modal__title" id="modalTitle">Título del plano</h3>
+        </div>
+        <div class="modal__header-actions">
+          <button type="button" class="mini-toggle is-active" id="modalViewImgBtn" hidden>Lámina HD</button>
+          <button type="button" class="mini-toggle" id="modalViewSvgBtn" hidden>Esquema SVG</button>
+          <button type="button" class="mini-toggle" id="modalBlueprintToggle" aria-pressed="false">Modo Blueprint</button>
+          <button type="button" class="modal__close" id="modalCloseBtn" aria-label="Cerrar visor">&times;</button>
+        </div>
+      </header>
+
+      <div class="modal__body">
+        <div class="modal__canvas" id="modalCanvas"></div>
+
+        <aside class="modal__sidebar">
+          <div class="cajetin">
+            <div class="cajetin__header font-mono">CAJETÍN DE ESPECIFICACIONES</div>
+            <dl class="cajetin__grid font-mono">
+              <div><dt>ESCALA</dt><dd id="modalScale">1:1</dd></div>
+              <div><dt>NORMA</dt><dd id="modalNorm">ISO 128</dd></div>
+              <div><dt>PROYECCIÓN</dt><dd id="modalProjection">Sistema Europeo</dd></div>
+              <div><dt>FORMATO</dt><dd id="modalFormat">A3</dd></div>
+            </dl>
+          </div>
+
+          <div class="modal__description">
+            <h4>Descripción técnica</h4>
+            <p id="modalDesc"></p>
+          </div>
+
+          <div class="modal__notes">
+            <h4>Detalles clave de lectura</h4>
+            <ul id="modalHighlights"></ul>
+          </div>
+
+          <div class="modal__nav">
+            <button type="button" class="btn btn--secondary btn--sm" id="modalPrevBtn">&larr; Anterior</button>
+            <span class="modal__counter font-mono" id="modalCounter">1 / 8</span>
+            <button type="button" class="btn btn--secondary btn--sm" id="modalNextBtn">Siguiente &rarr;</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/aplicacion.js"></script>
+</body>
+</html>
