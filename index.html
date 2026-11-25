@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TRAZO.DT — Portal educativo multipágina sobre Dibujo Técnico: precisión geométrica, historia, galería de planos y aplicaciones industriales.">
+  <title>TRAZO.DT // Inicio — Dibujo Técnico e Ingeniería Gráfica</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos-principales.css">
+</head>
+<body>
+  <a class="skip-link" href="#inicio">Saltar al contenido principal</a>
+
+  <!-- BARRA DE NAVEGACIÓN FIJA -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="brand" aria-label="Inicio — Trazo Dibujo Técnico">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" width="32" height="32" fill="none">
+            <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M8 28L28 8M8 28H24M8 28V12" stroke="#1D4ED8" stroke-width="2" stroke-linecap="square"/>
+            <circle cx="28" cy="8" r="2.4" fill="#E11D48"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">TRAZO<span class="brand__dot">.</span>DT</span>
+          <span class="brand__meta font-mono">ISO 128 // PORTAL TÉCNICO</span>
+        </span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link is-active"><span class="nav-num font-mono">01</span> Inicio</a></li>
+          <li><a href="historia.html" class="nav-link"><span class="nav-num font-mono">02</span> Historia</a></li>
+          <li><a href="galeria.html" class="nav-link"><span class="nav-num font-mono">03</span> Galería de Planos</a></li>
+          <li><a href="aplicaciones.html" class="nav-link"><span class="nav-num font-mono">04</span> Aplicaciones</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <span class="coord-readout font-mono" id="coordReadout" aria-hidden="true">X: 000 &nbsp;Y: 000</span>
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Navegación móvil">
+        <ul class="mobile-menu__list">
+          <li><a href="index.html" class="mobile-link is-active"><span class="font-mono">01 //</span> Inicio</a></li>
+          <li><a href="historia.html" class="mobile-link"><span class="font-mono">02 //</span> Historia del Dibujo Técnico</a></li>
+          <li><a href="galeria.html" class="mobile-link"><span class="font-mono">03 //</span> Galería de Planos</a></li>
+          <li><a href="aplicaciones.html" class="mobile-link"><span class="font-mono">04 //</span> Aplicaciones Industriales</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section id="inicio" class="hero section">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content reveal">
+            <div class="tech-badge font-mono">
+              <span class="tech-badge__dot"></span>
+              NORMA ISO 128 &middot; DIN 199 &middot; ESCALA 1:1
+            </div>
+
+            <h1 class="hero__title">
+              La precisión hecha <span class="text-gradient">lenguaje universal</span> de la ingeniería y el diseño.
+            </h1>
+
+            <p class="hero__subtitle">
+              Del trazo con escuadra sobre papel milimetrado al modelado paramétrico 3D: explora la historia, los planos normalizados y las aplicaciones reales que dan forma a la arquitectura y la industria moderna.
+            </p>
+
+            <div class="hero__cta">
+              <a href="galeria.html" class="btn btn--primary">
+                <span>Explorar Galería</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7"/>
+                </svg>
+              </a>
+              <a href="historia.html" class="btn btn--secondary">
+                <span>Comenzar recorrido</span>
+              </a>
+            </div>
+
+            <dl class="hero__specs font-mono">
+              <div class="spec-item">
+                <dt>PROYECCIÓN</dt>
+                <dd>Diédrica / Isométrica</dd>
+              </div>
+              <div class="spec-item">
+                <dt>TOLERANCIA BASE</dt>
+                <dd>&plusmn; 0.05 mm</dd>
+              </div>
+              <div class="spec-item">
+                <dt>FORMATO</dt>
+                <dd>UNE-EN ISO 5457</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- Tablero Interactivo Dual -->
+          <div class="hero__visual reveal" data-delay="120">
+            <div class="drafting-board" id="draftingBoard">
+              <div class="drafting-board__header font-mono">
+                <span>LÁMINA 00 // TABLERO DE PRECISIÓN</span>
+                <div class="drafting-controls">
+                  <button type="button" class="mini-toggle is-active" id="modeSvgBtn" aria-pressed="true">Trazado SVG</button>
+                  <button type="button" class="mini-toggle" id="modeImgBtn" aria-pressed="false">Lámina Studio</button>
+                  <button type="button" class="mini-toggle is-active" id="toggleConstructionBtn" aria-pressed="true">Aux.</button>
+                  <button type="button" class="mini-toggle is-active" id="toggleDimensionsBtn" aria-pressed="true">Cotas</button>
+                  <button type="button" class="mini-toggle" id="replayDrawBtn" title="Volver a trazar dibujo">↻</button>
+                </div>
+              </div>
+
+              <div class="drafting-board__canvas">
+                <svg id="heroSvg" class="hero-svg" viewBox="0 0 560 420" role="img" aria-label="Dibujo técnico isométrico animado con ejes cartesianos, líneas de construcción y cotas">
+                  <defs>
+                    <pattern id="microGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1D4ED8" stroke-opacity="0.08" stroke-width="0.7"/>
+                    </pattern>
+                    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#0891B2"/>
+                    </marker>
+                    <marker id="arrowCoral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#E11D48"/>
+                    </marker>
+                  </defs>
+
+                  <rect width="560" height="420" fill="url(#microGrid)"/>
+
+                  <g class="svg-axes" stroke="#94A3B8" stroke-width="1">
+                    <line x1="280" y1="24" x2="280" y2="388" stroke-dasharray="6 4"/>
+                    <line x1="65" y1="358" x2="495" y2="110" stroke-dasharray="6 4"/>
+                    <line x1="495" y1="358" x2="65" y2="110" stroke-dasharray="6 4"/>
+                    <text x="288" y="38" class="svg-label" fill="#0F172A">Z (90°)</text>
+                    <text x="458" y="106" class="svg-label" fill="#0F172A">X (30°)</text>
+                    <text x="58" y="106" class="svg-label" fill="#0F172A">Y (30°)</text>
+                  </g>
+
+                  <g id="constructionGroup" class="svg-construction" stroke="#1D4ED8" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="4 4" fill="none">
+                    <polygon points="280,74 418,154 280,234 142,154"/>
+                    <line x1="142" y1="154" x2="142" y2="282"/>
+                    <line x1="418" y1="154" x2="418" y2="282"/>
+                    <line x1="280" y1="234" x2="280" y2="362"/>
+                    <polyline points="142,282 280,362 418,282"/>
+                    <ellipse cx="280" cy="137" rx="54" ry="31" stroke="#E11D48" stroke-opacity="0.45"/>
+                  </g>
+
+                  <g id="solidGroup" class="svg-solid" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="280,74 418,154 352,192 214,112" fill="#06B6D4" fill-opacity="0.1"/>
+                    <polygon points="142,206 214,164 280,202 280,362 142,282" fill="#0F172A" fill-opacity="0.05"/>
+                    <polygon points="280,234 418,154 418,282 280,362" fill="#1D4ED8" fill-opacity="0.12"/>
+
+                    <path class="draw-line" d="M 142 282 L 142 206 L 214 164 L 214 112 L 280 74 L 418 154 L 418 282 L 280 362 Z" stroke="#0F172A" stroke-width="2.4"/>
+                    <path class="draw-line draw-line--d2" d="M 214 112 L 352 192 L 418 154" stroke="#0F172A" stroke-width="2.2"/>
+                    <path class="draw-line draw-line--d2" d="M 142 206 L 280 286 L 280 362" stroke="#0F172A" stroke-width="2.2"/>
+                    <path class="draw-line draw-line--d3" d="M 280 286 L 352 244 L 352 192" stroke="#0F172A" stroke-width="2.2"/>
+                    <path class="draw-line draw-line--d3" d="M 214 164 L 352 244" stroke="#1D4ED8" stroke-width="2"/>
+                    <ellipse class="draw-line draw-line--d4" cx="316" cy="133" rx="34" ry="19.5" stroke="#0891B2" stroke-width="2.2"/>
+                    <path class="draw-line draw-line--d4" d="M 326 335 L 326 259 L 372 232 L 372 308" stroke="#1D4ED8" stroke-width="1.8"/>
+
+                    <g transform="translate(26, 295)" opacity="0.94">
+                      <polygon points="0,105 110,105 0,25" fill="#FFFFFF" fill-opacity="0.9" stroke="#1D4ED8" stroke-width="1.6"/>
+                      <polygon points="18,90 68,90 18,54" fill="#F6F8FC" stroke="#0891B2" stroke-width="1.1"/>
+                      <text x="8" y="100" class="svg-label-sm" fill="#1D4ED8">30°</text>
+                    </g>
+                  </g>
+
+                  <g id="dimensionsGroup" class="svg-dimensions">
+                    <line x1="280" y1="374" x2="418" y2="294" stroke="#E11D48" stroke-width="1.4" marker-start="url(#arrowCoral)" marker-end="url(#arrowCoral)"/>
+                    <rect x="330" y="326" width="44" height="18" rx="2" fill="#FFFFFF" stroke="#E11D48" stroke-width="0.9"/>
+                    <text x="352" y="339" text-anchor="middle" class="svg-dim" fill="#E11D48">120.0</text>
+
+                    <line x1="142" y1="294" x2="280" y2="374" stroke="#0891B2" stroke-width="1.4" marker-start="url(#arrowBlue)" marker-end="url(#arrowBlue)"/>
+                    <rect x="184" y="326" width="44" height="18" rx="2" fill="#FFFFFF" stroke="#0891B2" stroke-width="0.9"/>
+                    <text x="206" y="339" text-anchor="middle" class="svg-dim" fill="#0891B2">90.0</text>
+
+                    <line x1="448" y1="154" x2="448" y2="282" stroke="#0891B2" stroke-width="1.4" marker-start="url(#arrowBlue)" marker-end="url(#arrowBlue)"/>
+                    <rect x="454" y="209" width="44" height="18" rx="2" fill="#FFFFFF" stroke="#0891B2" stroke-width="0.9"/>
+                    <text x="476" y="222" text-anchor="middle" class="svg-dim" fill="#0891B2">75.0</text>
+
+                    <polyline points="336,120 388,74 464,74" fill="none" stroke="#E11D48" stroke-width="1.3"/>
+                    <circle cx="336" cy="120" r="2.8" fill="#E11D48"/>
+                    <text x="394" y="68" class="svg-dim" fill="#E11D48">Ø 42 H7</text>
+                  </g>
+                </svg>
+
+                <div class="hero-artwork-wrap" id="heroArtworkWrap" hidden>
+                  <img src="assets/imagenes/portada-tablero-isometrico.jpg" alt="Ilustración de estudio técnico isométrico con instrumentos de precisión y planos blueprint">
+                </div>
+              </div>
+
+              <div class="drafting-board__footer font-mono">
+                <span>SISTEMA: ISOMÉTRICO (120° / 120° / 120°)</span>
+                <span class="text-coral">UNIDADES: mm</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumen Ejecutivo: 3 Pilares -->
+        <div class="pillars" aria-label="Pilares fundamentales del dibujo técnico">
+          <article class="pillar-card reveal">
+            <span class="pillar-card__cota font-mono" aria-hidden="true">TOL &plusmn;0.01</span>
+            <div class="pillar-card__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>
+                <circle cx="12" cy="12" r="2.5"/>
+              </svg>
+            </div>
+            <span class="pillar-card__code font-mono">PILAR 01</span>
+            <h3>Precisión Geométrica</h3>
+            <p>Cada línea, arco y cota define dimensiones exactas y tolerancias verificables, eliminando toda ambigüedad entre el diseño y la fabricación.</p>
+          </article>
+
+          <article class="pillar-card reveal" data-delay="80">
+            <span class="pillar-card__cota font-mono" aria-hidden="true">ISO / DIN / UNE</span>
+            <div class="pillar-card__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="16" rx="1"/>
+                <path d="M3 10h18M9 10v10M13 14h5M13 17h3"/>
+              </svg>
+            </div>
+            <span class="pillar-card__code font-mono">PILAR 02</span>
+            <h3>Normalización (ISO/DIN)</h3>
+            <p>Convenciones universales de grosores de línea, formatos de papel, escalas y simbología que permiten leer un plano en cualquier país del mundo.</p>
+          </article>
+
+          <article class="pillar-card reveal" data-delay="160">
+            <span class="pillar-card__cota font-mono" aria-hidden="true">3D &rarr; 2D</span>
+            <div class="pillar-card__icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/>
+                <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/>
+              </svg>
+            </div>
+            <span class="pillar-card__code font-mono">PILAR 03</span>
+            <h3>Representación Espacial</h3>
+            <p>Capacidad de proyectar volúmenes tridimensionales sobre un soporte plano mediante vistas diédricas, cortes y perspectivas axonométricas.</p>
+          </article>
+        </div>
+
+        <!-- Banda métrica de referencia -->
+        <div class="metrics-strip reveal" aria-label="Resumen técnico del portal">
+          <div class="metric-box">
+            <span class="metric-box__val">4 Páginas</span>
+            <span class="metric-box__label font-mono">Módulos independientes</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-box__val">8 Láminas</span>
+            <span class="metric-box__label font-mono">Planos HD + SVG en galería</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-box__val">5 Sectores</span>
+            <span class="metric-box__label font-mono">Disciplinas industriales</span>
+          </div>
+          <div class="metric-box">
+            <span class="metric-box__val">ISO 128</span>
+            <span class="metric-box__label font-mono">Estandarización vigente</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN BLUEPRINT: ACCESO A CADA PÁGINA -->
+    <section class="section section--blueprint">
+      <div class="container">
+        <header class="section-header reveal">
+          <div class="section-header__tag font-mono">ARQUITECTURA DEL PORTAL // MÓDULOS DEDICADOS</div>
+          <h2 class="section-header__title">Explora cada disciplina en su propia página</h2>
+          <p class="section-header__desc">
+            Cada bloque temático cuenta con su propia página especializada, ilustraciones técnicas generadas, diagramas interactivos y fichas normativas.
+          </p>
+        </header>
+
+        <div class="module-cards">
+          <a href="historia.html" class="module-card reveal">
+            <div class="module-card__img">
+              <img src="assets/imagenes/historia-evolucion-dibujo.jpg" alt="Evolución histórica del dibujo técnico desde la antigüedad hasta el CAD 3D">
+              <span class="module-card__num font-mono">MÓDULO 02</span>
+            </div>
+            <div class="module-card__body">
+              <h3>Historia del Arte y Dibujo Técnico</h3>
+              <p>Línea de tiempo interactiva desde la geometría euclidiana y Leonardo da Vinci hasta Gaspard Monge y la era BIM.</p>
+              <span class="module-card__link">ABRIR PÁGINA DE HISTORIA &rarr;</span>
+            </div>
+          </a>
+
+          <a href="galeria.html" class="module-card reveal" data-delay="90">
+            <div class="module-card__img">
+              <img src="assets/imagenes/plano-arquitectura-planta-estudio.jpg" alt="Plano arquitectónico de planta con ejes y mobiliario">
+              <span class="module-card__num font-mono">MÓDULO 03</span>
+            </div>
+            <div class="module-card__body">
+              <h3>Galería de Planos y Técnicas</h3>
+              <p>Archivo filtrable con láminas ilustradas, vistas ortogonales, cortes a 45°, isometrías, alfabeto de líneas y visor Lightbox.</p>
+              <span class="module-card__link">ABRIR GALERÍA DE PLANOS &rarr;</span>
+            </div>
+          </a>
+
+          <a href="aplicaciones.html" class="module-card reveal" data-delay="180">
+            <div class="module-card__img">
+              <img src="assets/imagenes/aplicaciones-ingenieria-multidisciplinar.jpg" alt="Aplicaciones multidisciplinares en BIM, mecánica, topografía y electrónica">
+              <span class="module-card__num font-mono">MÓDULO 04</span>
+            </div>
+            <div class="module-card__body">
+              <h3>Aplicaciones Industriales</h3>
+              <p>Descubre cómo se aplica el dibujo técnico en Arquitectura, Mecánica, Ingeniería Civil, Electrónica y Diseño de Producto.</p>
+              <span class="module-card__link">ABRIR PÁGINA DE APLICACIONES &rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__quote-bar">
+        <span class="footer__quote-tag font-mono">CITA HISTÓRICA // GEOMETRÍA DESCRIPTIVA</span>
+        <blockquote class="footer__quote">
+          “El dibujo técnico tiene por objeto representar con exactitud sobre una hoja de dos dimensiones los objetos que tienen tres y que son susceptibles de una definición rigurosa.”
+          <cite>— Gaspard Monge (1746–1818)</cite>
+        </blockquote>
+      </div>
+
+      <div class="footer__titleblock">
+        <div class="tb-cell">
+          <div class="brand brand--footer">
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 36 36" width="28" height="28" fill="none">
+                <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M8 28L28 8M8 28H24M8 28V12" stroke="#38BDF8" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <span class="brand__text">
+              <span class="brand__name">TRAZO<span class="brand__dot">.</span>DT</span>
+              <span class="brand__meta font-mono">PORTAL EDUCATIVO DE DIBUJO TÉCNICO</span>
+            </span>
+          </div>
+          <p class="footer__desc">Recurso divulgativo sobre representación gráfica, normalización industrial, geometría descriptiva y diseño arquitectónico e ingenieril.</p>
+        </div>
+
+        <div class="tb-cell">
+          <span class="tb-label font-mono">PÁGINAS DEL PORTAL</span>
+          <ul class="footer__links">
+            <li><a href="index.html">01. Inicio y Pilares</a></li>
+            <li><a href="historia.html">02. Historia del Dibujo</a></li>
+            <li><a href="galeria.html">03. Galería de Planos</a></li>
+            <li><a href="aplicaciones.html">04. Aplicaciones Reales</a></li>
+          </ul>
+        </div>
+
+        <div class="tb-cell">
+          <span class="tb-label font-mono">NORMAS DE REFERENCIA</span>
+          <ul class="footer__specs font-mono">
+            <li>ISO 128 — Principios de representación</li>
+            <li>ISO 5457 — Formatos y casilleros</li>
+            <li>ISO 5456 — Métodos de proyección</li>
+            <li>DIN 199 / UNE 1-032 — Documentación</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom font-mono">
+        <span>&copy; 2026 TRAZO.DT &mdash; ARQUITECTURA E INGENIERÍA GRÁFICA</span>
+        <span>PROYECCIÓN: PRIMER DIEDRO [E] &middot; UNIDADES: MILÍMETROS</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/aplicacion.js"></script>
+</body>
+</html>
