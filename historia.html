@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Historia del Arte y el Dibujo Técnico: de los cánones de Egipto y Grecia al Renacimiento, la Geometría Descriptiva de Gaspard Monge y la Era CAD/BIM.">
+  <title>Historia del Dibujo Técnico // TRAZO.DT</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos-principales.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-historia">Saltar al contenido principal</a>
+
+  <!-- BARRA DE NAVEGACIÓN FIJA -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="index.html" class="brand" aria-label="Inicio — Trazo Dibujo Técnico">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" width="32" height="32" fill="none">
+            <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M8 28L28 8M8 28H24M8 28V12" stroke="#1D4ED8" stroke-width="2" stroke-linecap="square"/>
+            <circle cx="28" cy="8" r="2.4" fill="#E11D48"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">TRAZO<span class="brand__dot">.</span>DT</span>
+          <span class="brand__meta font-mono">ISO 128 // PORTAL TÉCNICO</span>
+        </span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link"><span class="nav-num font-mono">01</span> Inicio</a></li>
+          <li><a href="historia.html" class="nav-link is-active"><span class="nav-num font-mono">02</span> Historia</a></li>
+          <li><a href="galeria.html" class="nav-link"><span class="nav-num font-mono">03</span> Galería de Planos</a></li>
+          <li><a href="aplicaciones.html" class="nav-link"><span class="nav-num font-mono">04</span> Aplicaciones</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__actions">
+        <span class="coord-readout font-mono" id="coordReadout" aria-hidden="true">X: 000 &nbsp;Y: 000</span>
+        <button class="hamburger" id="hamburgerBtn" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+          <span class="hamburger__line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu" hidden>
+      <nav aria-label="Navegación móvil">
+        <ul class="mobile-menu__list">
+          <li><a href="index.html" class="mobile-link"><span class="font-mono">01 //</span> Inicio</a></li>
+          <li><a href="historia.html" class="mobile-link is-active"><span class="font-mono">02 //</span> Historia del Dibujo Técnico</a></li>
+          <li><a href="galeria.html" class="mobile-link"><span class="font-mono">03 //</span> Galería de Planos</a></li>
+          <li><a href="aplicaciones.html" class="mobile-link"><span class="font-mono">04 //</span> Aplicaciones Industriales</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-historia">
+    <!-- BANNER DE PÁGINA CON IMAGEN MULTIMEDIA -->
+    <section class="page-banner">
+      <div class="container page-banner__grid">
+        <div>
+          <nav class="breadcrumb font-mono" aria-label="Ruta de navegación">
+            <a href="index.html">INICIO</a>
+            <span>/</span>
+            <span class="breadcrumb__current">02. HISTORIA DEL DIBUJO TÉCNICO</span>
+          </nav>
+          <h1 class="page-banner__title">Del Arte Clásico a la Ingeniería Moderna</h1>
+          <p class="page-banner__desc">
+            Un recorrido cronológico por los hitos que transformaron el boceto artístico y la proporción geométrica en el sistema científico de planos normalizados sobre el que se construye el mundo actual.
+          </p>
+          <div class="page-banner__stats font-mono">
+            <span class="banner-chip">4 ERAS FUNDAMENTALES</span>
+            <span class="banner-chip">3000 a.C. — PRESENTE</span>
+            <span class="banner-chip">ARTE + GEOMETRÍA DESCRIPTIVA</span>
+          </div>
+        </div>
+
+        <figure class="banner-media">
+          <img src="assets/imagenes/historia-evolucion-dibujo.jpg" alt="Evolución visual del dibujo técnico desde la antigüedad y el Renacimiento hasta el CAD 3D">
+          <figcaption class="banner-media__caption font-mono">
+            <span>LÁMINA H-01 // TRANSICIÓN GRÁFICA</span>
+            <span>PAPIRO &rarr; CIANOTIPO &rarr; CAD</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- LÍNEA DE TIEMPO INTERACTIVA -->
+    <section class="section">
+      <div class="container">
+        <header class="section-header reveal">
+          <div class="section-header__tag font-mono">CRONOLOGÍA INTERACTIVA // SELECCIONA UN HITO</div>
+          <h2 class="section-header__title">Cuatro Etapas Decisivas</h2>
+          <p class="section-header__desc">
+            Haz clic en cada periodo histórico para inspeccionar su diagrama geométrico característico, sus figuras clave y su aportación directa al dibujo técnico contemporáneo.
+          </p>
+        </header>
+
+        <div class="timeline-wrapper">
+          <div class="timeline-track" role="tablist" aria-label="Etapas históricas del dibujo técnico">
+            <button type="button" class="timeline-step is-active" role="tab" aria-selected="true" data-era="0">
+              <span class="timeline-step__year font-mono">3000 a.C. – II d.C.</span>
+              <span class="timeline-step__label">01. Antigüedad</span>
+            </button>
+            <button type="button" class="timeline-step" role="tab" aria-selected="false" data-era="1">
+              <span class="timeline-step__year font-mono">S. XV – XVI</span>
+              <span class="timeline-step__label">02. Renacimiento</span>
+            </button>
+            <button type="button" class="timeline-step" role="tab" aria-selected="false" data-era="2">
+              <span class="timeline-step__year font-mono">1795 – S. XIX</span>
+              <span class="timeline-step__label">03. Revolución Industrial</span>
+            </button>
+            <button type="button" class="timeline-step" role="tab" aria-selected="false" data-era="3">
+              <span class="timeline-step__year font-mono">1960 – Actualidad</span>
+              <span class="timeline-step__label">04. Era Digital (CAD/BIM)</span>
+            </button>
+          </div>
+
+          <div class="timeline-spotlight reveal" id="timelineSpotlight" role="tabpanel" aria-live="polite"></div>
+
+          <div class="timeline-cards">
+            <article class="era-card is-highlighted reveal" data-era-card="0">
+              <div class="era-card__head">
+                <span class="era-card__num font-mono">01</span>
+                <span class="era-card__date font-mono">ANTIGÜEDAD &middot; EGIPTO Y GRECIA</span>
+              </div>
+              <h3>Cánones, Geometría Euclidiana y Proporción</h3>
+              <p>
+                Los constructores egipcios empleaban retículas modulares y planos en papiro. En Grecia, <strong>Euclides</strong> sistematizó en <em>Los Elementos</em> los postulados de regla y compás, mientras <strong>Vitruvio</strong> documentó plantas y alzados arquitectónicos.
+              </p>
+              <div class="era-card__tags font-mono">
+                <span>Regla y compás</span>
+                <span>Proporción áurea</span>
+                <span>Papiro de Turín</span>
+              </div>
+            </article>
+
+            <article class="era-card reveal" data-delay="70" data-era-card="1">
+              <div class="era-card__head">
+                <span class="era-card__num font-mono">02</span>
+                <span class="era-card__date font-mono">RENACIMIENTO &middot; S. XV–XVI</span>
+              </div>
+              <h3>Perspectiva Cónica y Códices de Ingeniería</h3>
+              <p>
+                <strong>Filippo Brunelleschi</strong> formuló la perspectiva cónica, <strong>Durero</strong> publicó tratados geométricos y <strong>Leonardo da Vinci</strong> unió arte y técnica en despieces anatómicos, engranajes y máquinas.
+              </p>
+              <div class="era-card__tags font-mono">
+                <span>Punto de fuga</span>
+                <span>Códice Atlántico</span>
+                <span>Vista en explosión</span>
+              </div>
+            </article>
+
+            <article class="era-card reveal" data-delay="140" data-era-card="2">
+              <div class="era-card__head">
+                <span class="era-card__num font-mono">03</span>
+                <span class="era-card__date font-mono">REVOLUCIÓN INDUSTRIAL &middot; 1795</span>
+              </div>
+              <h3>Gaspard Monge y la Geometría Descriptiva</h3>
+              <p>
+                <strong>Gaspard Monge</strong> codificó el <em>sistema diédrico</em> (vistas ortogonales sobre planos perpendiculares). Esta revolución permitió fabricar piezas intercambiables en serie e impulsó los planos cianotipo.
+              </p>
+              <div class="era-card__tags font-mono">
+                <span>Sistema Diédrico</span>
+                <span>Vistas ortogonales</span>
+                <span>Blueprints</span>
+              </div>
+            </article>
+
+            <article class="era-card reveal" data-delay="210" data-era-card="3">
+              <div class="era-card__head">
+                <span class="era-card__num font-mono">04</span>
+                <span class="era-card__date font-mono">ERA DIGITAL &middot; CAD / BIM</span>
+              </div>
+              <h3>Del Restirador al Diseño Asistido 2D/3D</h3>
+              <p>
+                Desde <em>Sketchpad</em> (1963) hasta los entornos <strong>CAD</strong> y <strong>BIM</strong> actuales, el estilógrafo cedió paso al modelado paramétrico, las tolerancias asociativas y los gemelos digitales.
+              </p>
+              <div class="era-card__tags font-mono">
+                <span>CAD Paramétrico</span>
+                <span>Metodología BIM</span>
+                <span>Gemelos Digitales</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEGMENTO COMPARATIVA ARTE VS TÉCNICA -->
+    <section class="section section--tinted">
+      <div class="container">
+        <header class="section-header reveal">
+          <div class="section-header__tag font-mono">ANÁLISIS CONCEPTUAL // CONVERGENCIA GRÁFICA</div>
+          <h2 class="section-header__title">¿En qué se diferencian y cómo se complementan el Dibujo Artístico y el Técnico?</h2>
+        </header>
+
+        <div class="comparison-grid">
+          <article class="comparison-card comparison-card--warm reveal">
+            <span class="pillar-card__code font-mono">VERTIENTE 01</span>
+            <h3>Dibujo Artístico y Bocetado Conceptual</h3>
+            <p>Prioriza la expresividad, la atmósfera, la luz y la exploración libre de formas durante las fases iniciales del diseño.</p>
+            <ul class="comparison-list">
+              <li>Interpretación subjetiva de la proporción, el claroscuro y el volumen.</li>
+              <li>Uso frecuente de perspectiva cónica intuitiva y trazos a mano alzada.</li>
+              <li>Herramienta clave para idear conceptos arquitectónicos e industriales antes de acotar.</li>
+            </ul>
+          </article>
+
+          <article class="comparison-card comparison-card--accent reveal" data-delay="90">
+            <span class="pillar-card__code font-mono">VERTIENTE 02</span>
+            <h3>Dibujo Técnico Normalizado</h3>
+            <p>Garantiza la objetividad métrica, la reproducibilidad industrial y la lectura unívoca entre diseñadores, fabricantes y constructores.</p>
+            <ul class="comparison-list">
+              <li>Sujeto a normas internacionales (ISO, DIN, UNE, ASME) y escalas exactas.</li>
+              <li>Emplea proyecciones diédricas, cortes, secciones y tolerancias dimensionales.</li>
+              <li>Constituye un documento contractual vinculante en obra y fabricación CNC.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="section-actions">
+          <a href="galeria.html" class="btn btn--primary">Ver Planos Técnicos en la Galería &rarr;</a>
+          <a href="aplicaciones.html" class="btn btn--secondary">Explorar Aplicaciones Reales</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__quote-bar">
+        <span class="footer__quote-tag font-mono">CITA HISTÓRICA // RENACIMIENTO Y CIENCIA</span>
+        <blockquote class="footer__quote">
+          “La simplicidad es la máxima sofisticación; quien no ama las matemáticas no puede comprender la estructura de la naturaleza.”
+          <cite>— Inspirado en los Cuadernos de Leonardo da Vinci (1452–1519)</cite>
+        </blockquote>
+      </div>
+
+      <div class="footer__titleblock">
+        <div class="tb-cell">
+          <div class="brand brand--footer">
+            <span class="brand__mark" aria-hidden="true">
+              <svg viewBox="0 0 36 36" width="28" height="28" fill="none">
+                <rect x="2" y="2" width="32" height="32" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M8 28L28 8M8 28H24M8 28V12" stroke="#38BDF8" stroke-width="1.8"/>
+              </svg>
+            </span>
+            <span class="brand__text">
+              <span class="brand__name">TRAZO<span class="brand__dot">.</span>DT</span>
+              <span class="brand__meta font-mono">PORTAL EDUCATIVO DE DIBUJO TÉCNICO</span>
+            </span>
+          </div>
+          <p class="footer__desc">Recurso divulgativo sobre representación gráfica, normalización industrial, geometría descriptiva y diseño arquitectónico e ingenieril.</p>
+        </div>
+
+        <div class="tb-cell">
+          <span class="tb-label font-mono">PÁGINAS DEL PORTAL</span>
+          <ul class="footer__links">
+            <li><a href="index.html">01. Inicio y Pilares</a></li>
+            <li><a href="historia.html">02. Historia del Dibujo</a></li>
+            <li><a href="galeria.html">03. Galería de Planos</a></li>
+            <li><a href="aplicaciones.html">04. Aplicaciones Reales</a></li>
+          </ul>
+        </div>
+
+        <div class="tb-cell">
+          <span class="tb-label font-mono">NORMAS DE REFERENCIA</span>
+          <ul class="footer__specs font-mono">
+            <li>ISO 128 — Principios de representación</li>
+            <li>ISO 5457 — Formatos y casilleros</li>
+            <li>ISO 5456 — Métodos de proyección</li>
+            <li>DIN 199 / UNE 1-032 — Documentación</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom font-mono">
+        <span>&copy; 2026 TRAZO.DT &mdash; ARQUITECTURA E INGENIERÍA GRÁFICA</span>
+        <span>MÓDULO 02 // HISTORIA Y EVOLUCIÓN</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/aplicacion.js"></script>
+</body>
+</html>
